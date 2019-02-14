@@ -7,6 +7,19 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+var config = {
+  apiKey: "AIzaSyA6BWezB1lsdsUuzTNa79hfRoYVQQgU7dI",
+  authDomain: "arduino-firebase-9dd9e.firebaseapp.com",
+  databaseURL: "https://arduino-firebase-9dd9e.firebaseio.com",
+  projectId: "arduino-firebase-9dd9e",
+  storageBucket: "arduino-firebase-9dd9e.appspot.com",
+  messagingSenderId: "596534101210"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -14,7 +27,10 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule 
   ],
   bootstrap: [IonicApp],
   entryComponents: [
